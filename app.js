@@ -1,16 +1,18 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require("express");
+const app = express();
+const port = 3000;
 
+app.set("view engine", "ejs"); //setting penggunaan template untuk express
+app.set("views", "./view-ejs"); //setting penggunaan folder untuk menyimpan file .ejs
 
-app.get('/', (req, res)=>{
-    res.send('<h2>Hello World</h2>')
-})
+app.get("/", (req, res) => {
+  res.render("index");
+});
 
-app.get('/profil', (req, res)=>{
-    res.send('<h1>Profil Hello World</h1>')
-})
+app.get("/profil", (req, res) => {
+  res.render("profil");
+});
 
 app.listen(port, () => {
-    console.log(`App sudah siap, buka http://localhost: ${port}`)
-})
+  console.log(`App sudah siap, buka http://localhost:${port}`);
+});
